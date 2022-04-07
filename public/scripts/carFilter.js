@@ -31,16 +31,15 @@ class Car {
         else if (dateTime < getDateTimeNow()) {
             alert("Please select a date and time greater than now");
             return;
-        }else if (passanger == "") {
-            return this.cars.filter(car => car.availableAt <= dateTime);
-        } 
-        else if (passanger != "") {
-            return this.cars.filter(car => car.capacity >= passanger && car.availableAt <= dateTime);
+        } else if (passanger == "" && driver.toString() == "true") {
+            return this.cars.filter(car => car.available === true && car.availableAt <= dateTime);
+        } else if (passanger != "" && driver.toString() == "true") {
+            return this.cars.filter(car => car.available === true && car.capacity >= passanger && car.availableAt <= dateTime);
         }
-          else if (passanger == "" && driver.value == true) {
-            return this.cars.filter(car => car.available === true && car.availableAt <= dateTime );
-        }else if (passanger == "" && driver.value == false) {
+        else if (passanger == "" && driver.toString() == "false") {
             return this.cars.filter(car => car.available === false && car.availableAt <= dateTime);
+        } else if (passanger != "" && driver.toString() == "false") {
+            return this.cars.filter(car => car.available === false && car.capacity >= passanger && car.availableAt <= dateTime);
         }
         
     }
