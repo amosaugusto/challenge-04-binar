@@ -20,15 +20,8 @@ class Car {
         if (driver === undefined || driver === "") {
             alert("Please select a driver");
             return;
-        }
-        // else if (driver.value === yes){
-        //     return this.car.filter(car => car.available === true)
-        // } 
-        // else if (driver.value === no){
-        //     return this.car.filter(car => car.available === false)
-        // } 
-      
-        else if (dateTime < getDateTimeNow()) {
+        }    
+       else if (dateTime < getDateTimeNow()) {
             alert("Please select a date and time greater than now");
             return;
         } else if (passanger == "" && driver.toString() == "true") {
@@ -40,8 +33,7 @@ class Car {
             return this.cars.filter(car => car.available === false && car.availableAt <= dateTime);
         } else if (passanger != "" && driver.toString() == "false") {
             return this.cars.filter(car => car.available === false && car.capacity >= passanger && car.availableAt <= dateTime);
-        }
-        
+        }    
     }
 }
 

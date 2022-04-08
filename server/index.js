@@ -8,7 +8,6 @@
  
  const fs = require('fs')
  const path = require('path')
- const mime = require("mime");
  
  const cars = require('../data/cars.min.json');
  // Request handler
